@@ -4,26 +4,21 @@ options = ('piedra', 'papel', 'tijeras')
 round = 1
 count_person = 0
 count_comp = 0
+diferencia = int(input('con diferencia de cuanto quieres jugar ==> '))
 
-
-while True :   
-    
-    print('*' * 10)
-    print('round =>', round, '----', count_person, ' : ', count_comp)
-    print('*' * 10)
+def choose_options():
     user = input('piedra - papel - tijeras => ').lower()
-    diferencia = int(input('con diferencia de cuanto quieres jugar'))
-    round += 1
     if user not in options:
         print('esa opcion no es valida')
-        continue
-
+        #continue
+        return None, None
     computer = random.choice(options)
-    print('computer =>',computer)
-    print('user => ',user)
+    return computer, user
+
+def check_rules(user,computer,count_person, count_comp):
     if user == computer:
         print('EMPATE')
-        continue
+        return count_person,count_comp
 
     if user == 'piedra':
         if computer == 'tijeras':
@@ -52,16 +47,41 @@ while True :
             print('tijeras gana a papel')
             print('computer gana')
             count_comp += 1
+    return count_person, count_comp
 
+def winer(count_person, count_comp):
     if (count_comp-diferencia) == count_person:
-        break
+        return 'GANO LA MAQUINA',count_person,' : ',count_comp
     elif (count_person-diferencia) == count_comp:
-        break
+        return 'GANO EL HOMBRE'
+    
 
 
-print(count_person, ' : ', count_comp)
+def run_game():
+    round = 1 
+    count_person = 0
+    count_comp = 0
+    while True :  
+        print('*' * 10)
+        print('round =>', round, '----', count_person, ' : ', count_comp)
+        print('*' * 10)
+        round += 1
 
-if (count_comp-3) == count_person:
-    print('GANO LA MAQUINA')
-elif (count_person-3) == count_comp:
-    print('GANO EL HOMBRE')
+        computer, user = choose_options()
+
+        print('computer =>',computer)
+        print('user => ',user)
+
+        print(count_person, ' : ', count_comp)
+
+        count_person, count_comp = check_rules(user, computer, count_person, count_comp)
+
+        if (count_comp-diferencia) == count_person:
+            print(winer(count_person,count_comp))
+            break
+        elif (count_person-diferencia) == count_comp:
+            print(winer(count_person,count_comp))
+            break
+
+run_game()
+
