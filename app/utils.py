@@ -9,9 +9,9 @@ def get_population(country):
         '1980' : country['1980 Population'],
         '1970' : country['1970 Population']
     }
-    labels = list(population_dict.keys())
-    values = list(population_dict.values())
-    return labels,values
+    labels = population_dict.keys()
+    values = population_dict.values()
+    return labels, values
 
 def population_by_country(data, country):
     result = list(filter(lambda x : x['Country/Territory'] == country, data))
