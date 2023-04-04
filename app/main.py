@@ -12,6 +12,3 @@ try:
         charts.generate_bar_chart(label,values)
 except IndexError:
     print('Ingreso un pais que no esta en la lista vuelva a intentar')
-
-
-

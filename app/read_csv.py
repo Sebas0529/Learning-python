@@ -11,6 +11,5 @@ def read(path):
     return lista
 
 
-
 if __name__ == '__main__':
     read('C:/Users/sebas/OneDrive/Programacion/Curso de python_Comprehensions, funciones y manejo de errores/app/world_population.csv')

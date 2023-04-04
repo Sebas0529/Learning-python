@@ -22,29 +22,23 @@ def check_rules(user,computer,count_person, count_comp):
 
     if user == 'piedra':
         if computer == 'tijeras':
-            print('piedra gana a tijeras')
             print('user gano')
             count_person += 1
         else:
-            print('papel gana a piedra')
             print('computer gano')
             count_comp += 1
     elif user == 'tijeras':
         if computer == 'piedra':
-            print('piedra gana a tijeras')
             print('computer gano')
             count_comp += 1
         else:
-            print('tijeras gana a papel')
             print('user gano')
             count_person += 1
     elif user == 'papel':
         if computer == 'piedra':
-            print('papel gana a piedra')
             print('user gana')
             count_person += 1
         else:
-            print('tijeras gana a papel')
             print('computer gana')
             count_comp += 1
     return count_person, count_comp
@@ -62,8 +56,8 @@ def run_game():
     count_person = 0
     count_comp = 0
     while True :  
-        print('*' * 10)
-        print('round =>', round, '----', count_person, ' : ', count_comp)
+        print(('*' * 10) + '      COUNT PERSON         COUNT COMP')
+        print('round =>', round, '----     ', count_person, '         :       ', count_comp)
         print('*' * 10)
         round += 1
 
@@ -71,8 +65,6 @@ def run_game():
 
         print('computer =>',computer)
         print('user => ',user)
-
-        print(count_person, ' : ', count_comp)
 
         count_person, count_comp = check_rules(user, computer, count_person, count_comp)
 
