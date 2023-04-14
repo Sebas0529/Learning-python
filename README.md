@@ -1,6 +1,6 @@
 # Gmae Project 
 
-Para correr el juego deber seguir los siguientes asos en la termial
+Para correr el juego deber seguir los siguientes Pasos en la termial
 
 '''sh
 cd game
