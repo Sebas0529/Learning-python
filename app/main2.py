@@ -1,15 +1,33 @@
 import utils 
 import charts
 import read_csv
+import pandas as pd
 
 
-data = read_csv.read('C:/Users/sebas/OneDrive/Programacion/Curso de python_Comprehensions, funciones y manejo de errores/app/world_population.csv')
-options = set([n['Continent'] for n in data])
+
+
+
+df = pd.read_csv('world_population.csv')
+
+options = set(df['Continent'].values)
 print(options)
 continent = str(input('de que continente quieres que se muestre la estadistica mundial ==> '))
-data = list(filter(lambda n : n['Continent']==continent,data))
-label, values = utils.select_column('World Population Percentage',data)
 
-charts.generate_pie_chart(label,values)
 
-print(set([1,2,3,4,5,5,5,6,7]))
+df = df[df['Continent'] == continent]
+
+countries = list(set(df['Country/Territory'].values))
+porcentage = df['World Population Percentage']
+
+charts.generate_pie_chart(continent, countries,porcentage)
+
+print(countries)
+print(type(countries))
+print(porcentage)
+
+
+'''
+data = list(filter(lambda n : n['Continent'].lower() == continent.lower(), data))
+values = list(map(lambda i : i['World Population Percentage'],data))
+label = list(map(lambda i : i['Country/Territory'],data))
+'''
