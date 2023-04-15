@@ -1,11 +1,20 @@
 def SimplePassword(stri):
   symbol = '!@#$%^&*"\'=+-,.<>:;|'
-  x = False
-  z = ''
-  for n in symbol:
+  numeros = '0123456789'
+  x = y = False
+
+  for n in numeros:
     if stri.find(n) >= 0:
-      x = True
-      stri = stri.replace(n,'0')
+      y = True
+
+  if y:
+    for n in symbol:
+      if stri.find(n) >= 0:
+        x = True
+        stri = stri.replace(n,'0')
+  else:
+    print('falta minimo un numero')
+
       
       
   if x:

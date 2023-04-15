@@ -4,6 +4,8 @@ import json
 
 r = requests.get('https://coderbyte.com/api/challenges/json/age-counting')
 r = json.loads(r.text)['data']
+print(r)
+
 r = [l for l in r.split(',')]
 
 
@@ -18,6 +20,8 @@ print('*'*100)
 print(f'el total de {total} usuarios son mayores o iguales a 50 años')
 print('*'*100)
 
+print (r)
+import pdb; pdb.set_trace()
 
 group =[]
 for i in range(0,len(r),2):
